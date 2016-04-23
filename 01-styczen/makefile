@@ -1,0 +1,16 @@
+CC=g++
+CXXFLAGS+="-std=c++14"
+
+LDFLAGS=
+
+SOURCES=$(wildcard *.cpp)
+
+EXECUTABLES=$(SOURCES:.cpp=)
+
+all : $(EXECUTABLES)
+
+$(EXECUTABLES): %: %.cpp
+	$(CC) $(CXXFLAGS) $< -o $@ $(LDFLAGS)
+
+clean:
+	rm -f $(EXECUTABLES)
